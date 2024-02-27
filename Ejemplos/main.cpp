@@ -13,8 +13,8 @@ int main(void){
     cout << "Ingresa y2 ";
     cin >> y2;
 
-    x3 = x1+x2;
-    y3 = y1+y2;
+    x3 = x1-x2;
+    y3 = y1-y2;
 
     cout << "P1(" << x1 << "," << y1 << ")" << endl;
     cout << "P2(" << x2 << "," << y2 << ")" << endl;
