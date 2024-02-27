@@ -2,7 +2,7 @@
 using namespace std;
 
 int main(void){
-    float x1,y1,x2,y2,x3,y3;
+    float x1,y1,x2,y2,m;
 
     cout << "Ingresa x1 ";
     cin >> x1;
@@ -13,12 +13,11 @@ int main(void){
     cout << "Ingresa y2 ";
     cin >> y2;
 
-    x3 = x1-x2;
-    y3 = y1-y2;
+    m = (y2-y1)/(x2-x1);
 
     cout << "P1(" << x1 << "," << y1 << ")" << endl;
     cout << "P2(" << x2 << "," << y2 << ")" << endl;
-    cout << "P3(" << x3 << "," << y3 << ")" << endl;
+    cout << "m = "<< m << endl;
 
     return 0;
 }
