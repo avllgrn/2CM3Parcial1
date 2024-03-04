@@ -46,33 +46,60 @@ public:
 
 int main(void){
     cout << endl << "Inicia main" << endl << endl;
-    Punto2D P1,P2;
-    double d;
+    Punto2D P;
     system("pause");
     system("cls");
 
     cout << endl;
     cout << "Ingresa P1" << endl;
-    P1.pideleAlUsuarioTuEstado();
+    P.pideleAlUsuarioTuEstado();
     cout << endl;
-    cout << "Ingresa P2" << endl;
-    P2.pideleAlUsuarioTuEstado();
 
-    d = sqrt(
-             pow(P2.dameTuAtributoY()-P1.dameTuAtributoY(),2)
-             +
-             pow(P2.dameTuAtributoX()-P1.dameTuAtributoX(),2)
-        );
-
-    cout << endl << endl;
-    cout << "P1";
-    P1.muestraTuEstado();
-    cout << endl;
-    cout << "P2";
-    P2.muestraTuEstado();
-    cout << endl;
-    cout << "d = " << d << endl;
-    cout << endl << endl;
+    if(P.dameTuAtributoX()>0 && P.dameTuAtributoY()>0){
+        cout << "P";
+        P.muestraTuEstado();
+        cout << " esta en el cuadrante I";
+    }
+    else if(P.dameTuAtributoX()==0 && P.dameTuAtributoY()>0){
+        cout << "P";
+        P.muestraTuEstado();
+        cout << " esta en el eje Y+";
+    }
+    else if(P.dameTuAtributoX()<0 && P.dameTuAtributoY()>0){
+        cout << "P";
+        P.muestraTuEstado();
+        cout << " esta en el cuadrante II";
+    }
+    else if(P.dameTuAtributoX()<0 && P.dameTuAtributoY()==0){
+        cout << "P";
+        P.muestraTuEstado();
+        cout << " esta en el eje X-";
+    }
+    else if(P.dameTuAtributoX()<0 && P.dameTuAtributoY()<0){
+        cout << "P";
+        P.muestraTuEstado();
+        cout << " esta en el cuadrante III";
+    }
+    else if(P.dameTuAtributoX()==0 && P.dameTuAtributoY()<0){
+        cout << "P";
+        P.muestraTuEstado();
+        cout << " esta en el eje Y-";
+    }
+    else if(P.dameTuAtributoX()>0 && P.dameTuAtributoY()<0){
+        cout << "P";
+        P.muestraTuEstado();
+        cout << " esta en el cuadrante IV";
+    }
+    else if(P.dameTuAtributoX()>0 && P.dameTuAtributoY()==0){
+        cout << "P";
+        P.muestraTuEstado();
+        cout << " esta en el eje X+";
+    }
+    else {
+        cout << "P";
+        P.muestraTuEstado();
+        cout << " esta en el origen";
+    }
 
     cout<<endl<<"Termina main"<<endl<<endl;
     system("pause");
