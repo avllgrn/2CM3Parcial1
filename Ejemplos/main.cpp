@@ -45,7 +45,8 @@ public:
 
 int main(void){
     cout << endl << "Inicia main" << endl << endl;
-    Punto2D P1,P2,P3;
+    Punto2D P1,P2;
+    double m;
     system("pause");
     system("cls");
 
@@ -56,18 +57,16 @@ int main(void){
     cout << "Ingresa P2" << endl;
     P2.pideleAlUsuarioTuEstado();
 
-    P3.modificaTuAtributoX( P1.dameTuAtributoX() + P2.dameTuAtributoX() );
-    P3.modificaTuAtributoY( P1.dameTuAtributoY() + P2.dameTuAtributoY() );
+    m = (P2.dameTuAtributoY()-P1.dameTuAtributoY()) / (P2.dameTuAtributoX()-P1.dameTuAtributoX());
 
     cout << endl << endl;
-    cout << "  P1";
+    cout << "P1";
     P1.muestraTuEstado();
     cout << endl;
-    cout << "+ P2";
+    cout << "P2";
     P2.muestraTuEstado();
     cout << endl;
-    cout << "= P3";
-    P3.muestraTuEstado();
+    cout << "m = " << m << endl;
     cout << endl << endl;
 
     cout<<endl<<"Termina main"<<endl<<endl;
