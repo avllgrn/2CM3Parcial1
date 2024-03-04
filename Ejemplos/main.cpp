@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
+#include <math.h>
 using namespace std;
 
 class Punto2D{
@@ -46,7 +47,7 @@ public:
 int main(void){
     cout << endl << "Inicia main" << endl << endl;
     Punto2D P1,P2;
-    double m;
+    double d;
     system("pause");
     system("cls");
 
@@ -57,7 +58,11 @@ int main(void){
     cout << "Ingresa P2" << endl;
     P2.pideleAlUsuarioTuEstado();
 
-    m = (P2.dameTuAtributoY()-P1.dameTuAtributoY()) / (P2.dameTuAtributoX()-P1.dameTuAtributoX());
+    d = sqrt(
+             pow(P2.dameTuAtributoY()-P1.dameTuAtributoY(),2)
+             +
+             pow(P2.dameTuAtributoX()-P1.dameTuAtributoX(),2)
+        );
 
     cout << endl << endl;
     cout << "P1";
@@ -66,7 +71,7 @@ int main(void){
     cout << "P2";
     P2.muestraTuEstado();
     cout << endl;
-    cout << "m = " << m << endl;
+    cout << "d = " << d << endl;
     cout << endl << endl;
 
     cout<<endl<<"Termina main"<<endl<<endl;
