@@ -1,105 +1,84 @@
 #include <iostream>
 #include <stdlib.h>
-#include <math.h>
 using namespace std;
 
-class Punto2D{
+class Complejo{
 private:
-    double x;
-    double y;
+    double real;
+    double imaginario;
 public:
-    Punto2D(void){
-        Punto2D::x = 0.0;
-        Punto2D::y = 0.0;
-        cout<<"Objeto construido por Punto2D(void)"<<endl;
+    Complejo(void){
+        Complejo::real = 0.0;
+        Complejo::imaginario = 0.0;
+        cout<<"Objeto construido por Complejo(void)"<<endl;
     };
-    Punto2D(double x, double y){
-        Punto2D::x = x;
-        Punto2D::y = y;
-        cout<<"Objeto construido por Punto2D(double x, double y)"<<endl;
+    Complejo(double real, double imaginario){
+        Complejo::real = real;
+        Complejo::imaginario = imaginario;
+        cout<<"Objeto construido por Complejo(double real, double imaginario)"<<endl;
     };
-    ~Punto2D(void){
+    ~Complejo(void){
         cout<<"Objeto destruido =)"<<endl;
     };
     void pideleAlUsuarioTuEstado(void){
-        cout << "Dame mi x ";
-        cin >> this->x;
-        cout << "Dame mi y ";
-        cin >> this->y;
+        cout << "Dame mi real ";
+        cin >> this->real;
+        cout << "Dame mi imaginario ";
+        cin >> this->imaginario;
     };
     void muestraTuEstado(void){
-        cout << "(" << this->x << "," << this->y << ")";
+        cout << this->real;
+        if(imaginario<0)
+            cout << this->imaginario << "i";
+        else
+            cout << "+" << this->imaginario << "i";
     };
-    double dameTuAtributoX(void){
-        return this->x;
+    double dameTuAtributoReal(void){
+        return this->real;
     };
-    void modificaTuAtributoX(double x){
-        this->x = x;
+    void modificaTuAtributoReal(double real){
+        this->real = real;
     };
-    double dameTuAtributoY(void){
-        return this->y;
+    double dameTuAtributoImaginario(void){
+        return this->imaginario;
     };
-    void modificaTuAtributoY(double y){
-        this->y = y;
+    void modificaTuAtributoImaginario(double imaginario){
+        this->imaginario = imaginario;
     };
 };
 
 int main(void){
     cout << endl << "Inicia main" << endl << endl;
-    Punto2D P;
+    Complejo C1,C2,C3,C4;
     system("pause");
     system("cls");
 
     cout << endl;
-    cout << "Ingresa P1" << endl;
-    P.pideleAlUsuarioTuEstado();
+    cout << "Ingresa C1" << endl;
+    C1.pideleAlUsuarioTuEstado();
     cout << endl;
+    cout << "Ingresa C2" << endl;
+    C2.pideleAlUsuarioTuEstado();
 
-    if(P.dameTuAtributoX()>0 && P.dameTuAtributoY()>0){
-        cout << "P";
-        P.muestraTuEstado();
-        cout << " esta en el cuadrante I";
-    }
-    else if(P.dameTuAtributoX()==0 && P.dameTuAtributoY()>0){
-        cout << "P";
-        P.muestraTuEstado();
-        cout << " esta en el eje Y+";
-    }
-    else if(P.dameTuAtributoX()<0 && P.dameTuAtributoY()>0){
-        cout << "P";
-        P.muestraTuEstado();
-        cout << " esta en el cuadrante II";
-    }
-    else if(P.dameTuAtributoX()<0 && P.dameTuAtributoY()==0){
-        cout << "P";
-        P.muestraTuEstado();
-        cout << " esta en el eje X-";
-    }
-    else if(P.dameTuAtributoX()<0 && P.dameTuAtributoY()<0){
-        cout << "P";
-        P.muestraTuEstado();
-        cout << " esta en el cuadrante III";
-    }
-    else if(P.dameTuAtributoX()==0 && P.dameTuAtributoY()<0){
-        cout << "P";
-        P.muestraTuEstado();
-        cout << " esta en el eje Y-";
-    }
-    else if(P.dameTuAtributoX()>0 && P.dameTuAtributoY()<0){
-        cout << "P";
-        P.muestraTuEstado();
-        cout << " esta en el cuadrante IV";
-    }
-    else if(P.dameTuAtributoX()>0 && P.dameTuAtributoY()==0){
-        cout << "P";
-        P.muestraTuEstado();
-        cout << " esta en el eje X+";
-    }
-    else {
-        cout << "P";
-        P.muestraTuEstado();
-        cout << " esta en el origen";
-    }
+    C3.modificaTuAtributoReal( C1.dameTuAtributoReal() + C2.dameTuAtributoReal() );
+    C3.modificaTuAtributoImaginario( C1.dameTuAtributoImaginario() + C2.dameTuAtributoImaginario() );
+
+    C4.modificaTuAtributoReal( C1.dameTuAtributoReal() - C2.dameTuAtributoReal() );
+    C4.modificaTuAtributoImaginario( C1.dameTuAtributoImaginario() - C2.dameTuAtributoImaginario() );
+
+    cout << endl << endl;
+    cout << "C1 =\t\t= ";
+    C1.muestraTuEstado();
+    cout << endl;
+    cout << "C2 =\t\t= ";
+    C2.muestraTuEstado();
+    cout << endl;
+    cout << "C3 = C1+C2\t= ";
+    C3.muestraTuEstado();
+    cout << endl;
+    cout << "C4 = C1-C2\t= ";
+    C4.muestraTuEstado();
+    cout << endl << endl;
 
     cout<<endl<<"Termina main"<<endl<<endl;
     system("pause");
