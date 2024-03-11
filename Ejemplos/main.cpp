@@ -1,86 +1,72 @@
 #include <iostream>
 #include <stdlib.h>
+#include <string>
 using namespace std;
 
-class Complejo{
-private:
-    double real;
-    double imaginario;
-public:
-    Complejo(void){
-        Complejo::real = 0.0;
-        Complejo::imaginario = 0.0;
-        cout<<"Objeto construido por Complejo(void)"<<endl;
-    };
-    Complejo(double real, double imaginario){
-        Complejo::real = real;
-        Complejo::imaginario = imaginario;
-        cout<<"Objeto construido por Complejo(double real, double imaginario)"<<endl;
-    };
-    ~Complejo(void){
-        cout<<"Objeto destruido =)"<<endl;
-    };
-    void pideleAlUsuarioTuEstado(void){
-        cout << "Dame mi real ";
-        cin >> this->real;
-        cout << "Dame mi imaginario ";
-        cin >> this->imaginario;
-    };
-    void muestraTuEstado(void){
-        cout << this->real;
-        if(imaginario<0)
-            cout << this->imaginario << "i";
-        else
-            cout << "+" << this->imaginario << "i";
-    };
-    double dameTuAtributoReal(void){
-        return this->real;
-    };
-    void modificaTuAtributoReal(double real){
-        this->real = real;
-    };
-    double dameTuAtributoImaginario(void){
-        return this->imaginario;
-    };
-    void modificaTuAtributoImaginario(double imaginario){
-        this->imaginario = imaginario;
-    };
-};
-
 int main(void){
-    cout << endl << "Inicia main" << endl << endl;
-    Complejo C1,C2,C3,C4;
+    string Cadena1;
+    string Cadena2("de lenguaje C");
+    string Cadena3(Cadena2);
+
+    cout<<"Cadena1: "<<Cadena1<<endl;
+    cout<<"Cadena2: "<<Cadena2<<endl;
+    cout<<"Cadena3: "<<Cadena3<<endl<<endl;
+    system("pause");
+    cout<<endl<<endl;
+
+    Cadena1.assign("Dos ");
+    Cadena3.assign(Cadena1);
+
+    cout<<"Cadena1: "<<Cadena1<<endl;
+    cout<<"Cadena2: "<<Cadena2<<endl;
+    cout<<"Cadena3: "<<Cadena3<<endl<<endl;
+    system("pause");
+    cout<<endl<<endl;
+
+    Cadena3.append("cadenas ");
+    Cadena3.append(Cadena2);
+
+    cout<<"Cadena1: "<<Cadena1<<endl;
+    cout<<"Cadena2: "<<Cadena2<<endl;
+    cout<<"Cadena3: "<<Cadena3<<endl<<endl;
+    system("pause");
+    cout<<endl<<endl;
+
+    cout<<"Cadena1 tiene "<<Cadena1.size()<<" caracteres"<<endl;
+    cout<<"Cadena2 tiene "<<Cadena2.size()<<" caracteres"<<endl;
+    cout<<"Cadena3 tiene "<<Cadena3.size()<<" caracteres"<<endl<<endl;
+
+    cout<<"Cadena1 tiene "<<Cadena1.length()<<" caracteres"<<endl;
+    cout<<"Cadena2 tiene "<<Cadena2.length()<<" caracteres"<<endl;
+    cout<<"Cadena3 tiene "<<Cadena3.length()<<" caracteres"<<endl<<endl;
+    system("pause");
+    cout<<endl<<endl;
     system("pause");
     system("cls");
 
-    cout << endl;
-    cout << "Ingresa C1" << endl;
-    C1.pideleAlUsuarioTuEstado();
-    cout << endl;
-    cout << "Ingresa C2" << endl;
-    C2.pideleAlUsuarioTuEstado();
+    cout<<"Cadena1: "<<Cadena1<<endl;
+    cout<<"Cadena2: "<<Cadena2<<endl;
+    cout<<"Cadena3: "<<Cadena3<<endl<<endl;
 
-    C3.modificaTuAtributoReal( C1.dameTuAtributoReal() + C2.dameTuAtributoReal() );
-    C3.modificaTuAtributoImaginario( C1.dameTuAtributoImaginario() + C2.dameTuAtributoImaginario() );
+    cout<<"Cadena1.at(0): "<<Cadena1.at(0)<<endl;
+    cout<<"Cadena2.at(1): "<<Cadena2.at(10)<<endl;
+    cout<<"Cadena3.at(20): "<<Cadena3.at(20)<<endl<<endl;
 
-    C4.modificaTuAtributoReal( C1.dameTuAtributoReal() - C2.dameTuAtributoReal() );
-    C4.modificaTuAtributoImaginario( C1.dameTuAtributoImaginario() - C2.dameTuAtributoImaginario() );
+    int i;
+    cout<<endl<<"Cadena 1"<<endl;
+    for(i=0;i<Cadena1.size();i++){
+        cout<<"Cadena1.at("<<i<<") => "<<Cadena1.at(i)<<endl;
+    }
 
-    cout << endl << endl;
-    cout << "C1 =\t\t= ";
-    C1.muestraTuEstado();
-    cout << endl;
-    cout << "C2 =\t\t= ";
-    C2.muestraTuEstado();
-    cout << endl;
-    cout << "C3 = C1+C2\t= ";
-    C3.muestraTuEstado();
-    cout << endl;
-    cout << "C4 = C1-C2\t= ";
-    C4.muestraTuEstado();
-    cout << endl << endl;
+    cout<<endl<<"Cadena 2"<<endl;
+    for(i=0;i<Cadena2.size();i++){
+        cout<<"Cadena2.at("<<i<<") => "<<Cadena2.at(i)<<endl;
+    }
 
-    cout<<endl<<"Termina main"<<endl<<endl;
-    system("pause");
+    cout<<endl<<"Cadena 3"<<endl;
+    for(i=0;i<Cadena3.size();i++){
+        cout<<"Cadena3.at("<<i<<") => "<<Cadena3.at(i)<<endl;
+    }
+
     return 0;
 }
